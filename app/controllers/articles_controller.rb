@@ -1,22 +1,8 @@
-class ArticlesController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+def show
+  @article = Article.find(params[:id])
+  if @article.isPublished
+    render :show
+  else
+    redirect_to articles_path
   end
 end
