@@ -1,0 +1,42 @@
+<%= form_with(model: article_controller) do |form| %>
+  <% if article_controller.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(article_controller.errors.count, "error") %> prohibited this article_controller from being saved:</h2>
+
+      <ul>
+        <% article_controller.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :isPublished, style: "display: block" %>
+    <%= form.check_box :isPublished %>
+  </div>
+
+  <div>
+    <%= form.label :publishedAt, style: "display: block" %>
+    <%= form.datetime_field :publishedAt %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

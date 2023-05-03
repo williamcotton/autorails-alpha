@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @article_controller %>
+
+<div>
+  <%= link_to "Edit this article controller", edit_article_controller_path(@article_controller) %> |
+  <%= link_to "Back to article controllers", article_controllers_path %>
+
+  <%= button_to "Destroy this article controller", @article_controller, method: :delete %>
+</div>
