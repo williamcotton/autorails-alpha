@@ -1,5 +1,5 @@
 # Use the official Ruby image as the base image
-FROM ruby:3.1
+FROM ruby:3
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -10,8 +10,11 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 # Install Rails as a global dependency
 RUN gem install rails
 
+# Update bundler
+RUN gem install bundler
+
 # Copy the Gemfile and Gemfile.lock from your Rails app into the container
-COPY Gemfile* /app/
+COPY ./Gemfile ./Gemfile.lock /app/
 
 # Install Ruby gems
 RUN bundle install
